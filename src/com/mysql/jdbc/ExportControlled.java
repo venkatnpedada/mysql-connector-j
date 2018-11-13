@@ -321,7 +321,8 @@ public class ExportControlled {
         String trustCertificateKeyStorePassword = mysqlIO.connection.getTrustCertificateKeyStorePassword();
         String trustCertificateKeyStoreType = mysqlIO.connection.getTrustCertificateKeyStoreType();
 
-        if (StringUtils.isNullOrEmpty(clientCertificateKeyStoreUrl)) {
+        //Commenting this code as we dont want to check "javax.net.ssl.keyStore" 
+        /*if (StringUtils.isNullOrEmpty(clientCertificateKeyStoreUrl)) {
             clientCertificateKeyStoreUrl = System.getProperty("javax.net.ssl.keyStore");
             clientCertificateKeyStorePassword = System.getProperty("javax.net.ssl.keyStorePassword");
             clientCertificateKeyStoreType = System.getProperty("javax.net.ssl.keyStoreType");
@@ -336,7 +337,7 @@ public class ExportControlled {
                     clientCertificateKeyStoreUrl = "file:" + clientCertificateKeyStoreUrl;
                 }
             }
-        }
+        }*/
 
         if (StringUtils.isNullOrEmpty(trustCertificateKeyStoreUrl)) {
             trustCertificateKeyStoreUrl = System.getProperty("javax.net.ssl.trustStore");
